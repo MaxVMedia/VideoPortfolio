@@ -454,9 +454,12 @@ html {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
     gap: 2.5rem;
     padding: 0 1rem;
+    justify-items: center;
 }
 
 .video-item {
+    width: 100%;
+    max-width: 500px;
     background: #fff;
     border-radius: var(--radius-lg);
     overflow: hidden;
