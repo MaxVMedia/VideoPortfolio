@@ -455,6 +455,7 @@ html {
     gap: 2.5rem;
     padding: 0 1rem;
     justify-items: center;
+    align-items: start;
 }
 
 .video-item {
@@ -470,6 +471,7 @@ html {
     isolation: isolate;
     opacity: 0;
     transform: translateY(30px);
+    margin: 0;
 }
 
 .video-item.visible {
@@ -645,6 +647,141 @@ html {
     font-size: 0.95rem;
     line-height: 1.6;
     font-weight: 400;
+}
+
+/* Portfolio CTA Card - Grid Item */
+.portfolio-cta-card {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-slow);
+    position: relative;
+    isolation: isolate;
+    opacity: 0;
+    transform: translateY(30px);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.portfolio-cta-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.portfolio-cta-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    padding: 2px;
+    background: var(--gradient-gold);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    z-index: -1;
+}
+
+.portfolio-cta-card:hover::before {
+    opacity: 1;
+}
+
+.portfolio-cta-card.visible:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-cinematic);
+}
+
+.cta-card-content {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-card-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.cta-card-content p {
+    color: rgba(26, 26, 46, 0.65);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.full-portfolio-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2.5rem;
+    background: var(--gradient-gold);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all var(--transition-base);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.full-portfolio-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.full-portfolio-button::after {
+    content: '→';
+    font-size: 1.2rem;
+    transition: transform var(--transition-base);
+}
+
+.full-portfolio-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+}
+
+.full-portfolio-button:hover::after {
+    transform: translateX(4px);
+}
+
+.full-portfolio-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.full-portfolio-button:active {
+    transform: translateY(-1px) scale(1);
+    transition-duration: 50ms;
 }
 
 /* About Section - Elegant Split Layout */

@@ -231,6 +231,12 @@ videoItems.forEach(item => {
     observer.observe(item);
 });
 
+// Observe portfolio CTA card for scroll animation
+const portfolioCtaCard = document.querySelector('.portfolio-cta-card');
+if (portfolioCtaCard) {
+    observer.observe(portfolioCtaCard);
+}
+
 // Active navigation link highlighting - Optimized with throttle and caching
 const sections = document.querySelectorAll('section[id]');
 const navLinkCache = new Map();
